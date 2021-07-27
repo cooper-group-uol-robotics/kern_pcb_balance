@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>driver_pps4102</name>
+  <name>fisherbrand_pps4102_balance</name>
   <version>1.0.0</version>
   <description>A ROS Driver for Fisher Scientific PPS4102 Balance. Uses RS232-USB to communicate.</description>
 
