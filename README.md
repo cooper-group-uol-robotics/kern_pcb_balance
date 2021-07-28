@@ -31,8 +31,8 @@ rostopic pub -1 /Balance_Commands fisherbrand_pps4102_balance/BalanceCommand "ba
 ```
 
 ## Possible commands:
-0 | Re-calibrates (Tares) the scale back to zero\
-1 | Turns scale back on from standby\
-2 | Turns scale to standby mode\
-3 | Gets the weight currently read by the scale, waits until weight is stabilized then publishes to Scale_Weights\
-4 | Gets the weight read by the scale immediately without waiting for stability, publishes to Scale_Weights
+0 | Re-calibrates (Tares) the balance back to zero\
+1 | Turns balance back on from standby\
+2 | Turns balance to standby mode\
+3 | Gets the weight currently read by the balance, waits until weight is stabilized then publishes to Balance_Weights\
+4 | Gets the weight read by the balance immediately without waiting for stability, publishes to Balance_Weights
