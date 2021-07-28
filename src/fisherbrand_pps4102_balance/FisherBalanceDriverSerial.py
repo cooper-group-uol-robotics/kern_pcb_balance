@@ -1,14 +1,14 @@
+#!/usr/bin/env python
+
 #Serial Driver for Fisher Scientific PPS4102 Top Pan balance
 #Uses USB-Serial-RS232 communication to send commands and receive messages
 #Made by Jakub Glowacki 27/07/2021
-
-#!/usr/bin/env python
 
 import time
 import serial
 import re
 
-class ScaleDriver:
+class BalanceDriver:
     serialCom = serial.Serial() #Globally define serial communication
     
     def __init__(self): #Init function starts serial communication
@@ -43,7 +43,7 @@ class ScaleDriver:
         return s[1]
 
     def weightNow(self):
-        #Immediately print weight on scale, regardless of stability
+        #Immediately print weight on Balance, regardless of stability
         #Identical to weight function but uses IP instead of P command and doesn't wait for stability
         global serialCom
         serialCom.write(bytearray("IP\r\n", "ascii"))
@@ -53,19 +53,19 @@ class ScaleDriver:
         return s[1]
     
     def zero(self):
-        #Zero out the scale
+        #Zero out the Balance
         global serialCom
         serialCom.write(bytearray("T\r\n", "ascii")) #Send Zero (Tare) Command
         return True
 
     def off(self):
-        #Turn off scale
+        #Turn off Balance
         global serialCom
         serialCom.write(bytearray("OFF\r\n", "ascii"))
         return True
         
     def on(self):
-        #Turn on Scale
+        #Turn on Balance
         global serialCom
         serialCom.write(bytearray("ON\r\n", "ascii"))
         return True
