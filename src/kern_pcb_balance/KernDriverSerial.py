@@ -19,7 +19,7 @@ class KernDriver:
             parity=serial.PARITY_NONE,
             stopbits=serial.STOPBITS_ONE,
             bytesize=serial.EIGHTBITS,
-            timeout=1
+            timeout=0.2
             )
         
     #Commands are defined in Balance manual, however need to be sent over serial as

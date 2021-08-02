@@ -17,11 +17,10 @@ class KernROS:
         rospy.Subscriber("Kern_Command", KernCommand, self.callback_commands)
         #Initialize ros published for Balance responses (weights)
         pub = rospy.Publisher("Kern_Weights", KernReading, queue_size=10)
-        rate = rospy.Rate(4) #Initialize rate object for consistent timed looping
+        rate = rospy.Rate(10) #Initialize rate object for consistent timed looping
         rospy.loginfo("Kern driver started")
         while not rospy.is_shutdown(): #Whenever driver is running, loop each second polling all values and publishing them to topic
-            kernWeight = self.kern.weight()
-            pub.publish(float(kernWeight))
+            pub.publish(float(self.kern.weight()))
             rate.sleep()
     
     def zero(self):
