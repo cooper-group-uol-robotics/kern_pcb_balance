@@ -1,0 +1,3 @@
+<launch>
+	<node name="KernPCBROS" pkg="kern_pcb_balance" type="KernPCBROS" /> 	
+</launch>

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(fisherbrand_pps4102_balance)
+project(kern_pcb_balance)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -48,8 +48,8 @@ catkin_python_setup()
 ## Generate messages in the 'msg' folder
  add_message_files(
    FILES
-   BalanceCommand.msg
-   BalanceReading.msg
+   KernCommand.msg
+   KernReading.msg
  )
 
 ## Generate services in the 'srv' folder
@@ -159,7 +159,7 @@ include_directories(
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
-catkin_install_python(PROGRAMS nodes/FisherBalanceROS
+catkin_install_python(PROGRAMS nodes/KernPCBROS
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
 

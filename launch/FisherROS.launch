@@ -1,3 +1,0 @@
-<launch>
-	<node name="FisherBalanceROS" pkg="fisherbrand_pps4102_balance" type="FisherBalanceROS" /> 	
-</launch>
