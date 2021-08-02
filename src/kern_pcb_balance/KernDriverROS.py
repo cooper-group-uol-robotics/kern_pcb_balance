@@ -1,7 +1,8 @@
+#!/usr/bin/env python
 
-#ROS Wrapper for Fisher Scientific PPS4102 Top Pan Balance Serial Driver
+#ROS Wrapper for KERN PCB Top Pan Balance Serial Driver
 #Utilises ROS Topics to facilitate communication with balance using a serial driver
-#Made by Jakub Glowacki 27/07/2021
+#Made by Jakub Glowacki 02/08/2021
 
 import rospy
 from kern_pcb_balance.msg import KernReading
@@ -12,10 +13,10 @@ class KernROS:
     
     def __init__(self):
         global pub
-        self.kern = KernDriver() #Create object of BalanceDriver class, for serial communication
+        self.kern = KernDriver() #Create object of KernDriver class, for serial communication
         #Initialize ros subscriber of topic to which commands are published
         rospy.Subscriber("Kern_Command", KernCommand, self.callback_commands)
-        #Initialize ros published for Balance responses (weights)
+        #Initialize ros published for balance responses (weights)
         pub = rospy.Publisher("Kern_Weights", KernReading, queue_size=10)
         rate = rospy.Rate(10) #Initialize rate object for consistent timed looping
         rospy.loginfo("Kern driver started")
