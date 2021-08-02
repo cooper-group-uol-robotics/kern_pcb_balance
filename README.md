@@ -6,33 +6,24 @@
 ## How to Launch
 The easiest way to launch the package is with roslaunch:
 ```
-roslaunch fisherbrand_pps4102_balance FisherROS.launch
+roslaunch kern_pcb_balance KernROS.launch
 ```
 Alternatively, can be launched using rosrun:
 ```
-rosrun fisherbrand_pps4102_balance FisherBalanceROS
+rosrun kern_pcb_balance KernPCBROS
 ```
 
 ## Balance Serial Settings:
 Baud Rate: 9600\
-Parity: None\
-Bits: 8\
-No Handshake
+Set balance mode to AU PC
 
 ## ROS Topics:
-Balance_Commands | For publishing commands to\
-Balance_Weights | Where weights will be published to from the scale
+Kern_Commands | For publishing commands to\
+Kern_Weights | Where weights are continually published to the scale at approx. 4hz
 
-## How to send Commands:
-Commands are sent using the Balance_Commands topic. Each command has its own command ID which can be sent through the topic as a balance_command. A balance_command is just a simple integer corresponding to a command, as indicated by the list below. For example, to zero the scale use the command:
+## Usage:
+This scale driver only supports one command, that is to tare the scale down to zero. This command can be triggered as follows:
 ```
-rostopic pub -1 /Balance_Commands fisherbrand_pps4102_balance/BalanceCommand "balance_command: 0" 
-
+rostopic pub -1 /Kern_Commands kern_pcb_balance/KernCommand "kern_command: 0" 
 ```
-
-## Possible commands:
-0 | Re-calibrates (Tares) the balance back to zero\
-1 | Turns balance back on from standby\
-2 | Turns balance to standby mode\
-3 | Gets the weight currently read by the balance, waits until weight is stabilized then publishes to Balance_Weights\
-4 | Gets the weight read by the balance immediately without waiting for stability, publishes to Balance_Weights
+Otherwise, the only functionality of the driver is to continually send the weight currently being read to the Kern_Weights topic as a float32 value "weight". This driver is to be used in conjunction with the peristaltic_dispenser_driver for PID controlled weight based liquid dispensing.
