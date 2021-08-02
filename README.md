@@ -15,6 +15,7 @@ rosrun kern_pcb_balance KernPCBROS
 
 ## Balance Serial Settings:
 Baud Rate: 9600
+Set balance mode to AU PC
 
 ## ROS Topics:
 Kern_Commands | For publishing commands to\
