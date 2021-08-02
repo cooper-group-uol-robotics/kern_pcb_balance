@@ -1,5 +1,5 @@
-# fisherbrand_pps4102_balance
-#### ROS Driver for Fisher Scientific PPS4102 Top Pan Balance
+# kern_pcb_balance
+#### ROS Driver for Kern PCB Top Pan Balance
 #### Uses RS232-USB adapter for serial communication
 ##### Written by Jakub Glowacki
 
