@@ -10,6 +10,10 @@ find_package(catkin REQUIRED COMPONENTS
 
 catkin_python_setup()
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ed584f5798acedc26a6446e665cf28e676dac7ef
  add_message_files(
    FILES
    KernCommand.msg
@@ -25,14 +29,25 @@ std_msgs
 
 catkin_package(
 	CATKIN_DEPENDS message_runtime
+<<<<<<< HEAD
 
 include_directories(
 
+=======
+
+)
+
+
+>>>>>>> ed584f5798acedc26a6446e665cf28e676dac7ef
   ${catkin_INCLUDE_DIRS}
 )
 
 
+<<<<<<< HEAD
 catkin_install_python(PROGRAMS nodes/KernPCBROS
+=======
+catkin_install_python(PROGRAMS nodes/FisherBalanceROS
+>>>>>>> ed584f5798acedc26a6446e665cf28e676dac7ef
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
 
