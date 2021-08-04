@@ -32,7 +32,10 @@ catkin_package(
 <<<<<<< HEAD
 
 include_directories(
+<<<<<<< HEAD
 
+=======
+>>>>>>> noetic
 =======
 
 )
