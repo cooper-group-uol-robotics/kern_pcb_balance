@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-#Serial Driver for Fisher Scientific PPS4102 Top Pan balance
+#Serial Driver for Kern PCB Top Pan balance
 #Uses USB-Serial-RS232 communication to send commands and receive messages
 #Made by Jakub Glowacki 27/07/2021
 
@@ -22,24 +22,24 @@ class KernDriver:
             timeout=0.2
             )
         
-    #Commands are defined in Balance manual, however need to be sent over serial as
+    #Commands are defined in balance manual, however need to be sent over serial as
     #ASCII encoded byte arrays and must end with a carriage return and line break to
     #be recognized. Received messsages can also be decoded then to unicode strings.
 
     def weight(self):
-        #Immediately print weight on Balance, regardless of stability
-        #Identical to weight function but uses IP instead of P command and doesn't wait for stability
+        #Read and return weight being sent over serial by balance
         global serialCom 
-        x=serialCom.read_until("\n")
-        stringx=str(x.decode('ascii'))
+        x=serialCom.read_until("\n") #Serial read
+        stringx=str(x.decode('ascii')) #convert to string
+        #use regular expression to get float weight value
         s = re.findall("[-+]?[.]?[\d]+(?:,\d\d\d)*[\.]?\d*(?:[eE][-+]?\d+)?", stringx) 
-        if (len(s) > 0):
+        if (len(s) > 0): #return value if it exists, otherwise return 0
         	return s[0]
         else:
         	return 0
     
     def zero(self):
-        #Zero out the Balance
+        #Zero out the balance
         global serialCom
         serialCom.write(bytearray("t\r\n", "ascii")) #Send Zero (Tare) Command
         return True
