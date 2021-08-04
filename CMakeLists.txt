@@ -10,6 +10,10 @@ find_package(catkin REQUIRED COMPONENTS
 
 catkin_python_setup()
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ed584f5798acedc26a6446e665cf28e676dac7ef
  add_message_files(
    FILES
    BalanceCommand.msg
@@ -25,8 +29,15 @@ std_msgs
 
 catkin_package(
 	CATKIN_DEPENDS message_runtime
+<<<<<<< HEAD
 
 include_directories(
+=======
+
+)
+
+
+>>>>>>> ed584f5798acedc26a6446e665cf28e676dac7ef
   ${catkin_INCLUDE_DIRS}
 )
 
