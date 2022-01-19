@@ -1,3 +1,4 @@
 <launch>
-	<node name="KernPCBROS" pkg="kern_pcb_balance" type="KernPCBROS" /> 	
+	<arg name="serial_port" default="/dev/ttyUSB0" />
+	<node name="KernPCBROS" pkg="kern_pcb_balance" type="KernPCBROS" args="$(arg serial_port)" output="screen"/> 	
 </launch>

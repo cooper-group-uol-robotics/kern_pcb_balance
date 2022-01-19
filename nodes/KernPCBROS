@@ -3,10 +3,16 @@
 #Script to use the Fisher Scientific PPS4102 Top Pan balance in ROS
 
 import rospy
+import sys
 from kern_pcb_balance import KernROS
             
 if __name__ == "__main__": #Object oriented initialization for ROS
+    if len(sys.argv) > 1:
+        serial_port = sys.argv[1]
+    else:
+        serial_port = '/dev/ttyUSB0'
+        rospy.logwarn('No input serial port is provided. The default serial port (ttyUSB0) is used')
     rospy.init_node("kern_driver", anonymous=True) #initialize rospy node
-    kern_ROS = KernROS() #Create instance of ROS Wrapper
+    kern_ROS = KernROS(serial_port) #Create instance of ROS Wrapper
     rospy.loginfo("Kern driver started")
     rospy.spin()

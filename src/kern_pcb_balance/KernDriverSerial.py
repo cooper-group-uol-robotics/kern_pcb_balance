@@ -11,15 +11,15 @@ import re
 class KernDriver:
     serialCom = serial.Serial() #Globally define serial communication
     
-    def __init__(self): #Init function starts serial communication
+    def __init__(self, serial_port): #Init function starts serial communication
         global serialCom 
         serialCom = serial.Serial( #Initialize serial communication object
-            port='/dev/ttyUSB0',
+            port=serial_port,
             baudrate = 9600,
             parity=serial.PARITY_NONE,
             stopbits=serial.STOPBITS_ONE,
             bytesize=serial.EIGHTBITS,
-            timeout=0.2
+            timeout=None
             )
         
     #Commands are defined in balance manual, however need to be sent over serial as
@@ -28,9 +28,10 @@ class KernDriver:
 
     def weight(self):
         #Read and return weight being sent over serial by balance
-        global serialCom 
-        x=serialCom.read_until("\n") #Serial read
-        stringx=str(x.decode('ascii')) #convert to string
+        global serialCom
+        serialCom.write(bytearray("w\r\n", "ascii"))
+        bytes_read=serialCom.read_until(bytearray('\r\n', 'ascii')) #Serial read
+        stringx=str(bytes_read.decode('ascii')) #convert to string
         #use regular expression to get float weight value
         s = re.findall("[-+]?[.]?[\d]+(?:,\d\d\d)*[\.]?\d*(?:[eE][-+]?\d+)?", stringx) 
         if (len(s) > 0): #return value if it exists, otherwise return 0

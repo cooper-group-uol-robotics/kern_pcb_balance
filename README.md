@@ -4,18 +4,22 @@
 ##### Written by Jakub Glowacki
 
 ## How to Launch
+First of all ensure the balance in remote command mode **rE Cr**
 The easiest way to launch the package is with roslaunch:
 ```
-roslaunch kern_pcb_balance KernROS.launch
+roslaunch kern_pcb_balance KernROS.launch serial_port:=<port_name>
 ```
-Alternatively, can be launched using rosrun:
+This will launch the plate connected to the provided serial port. If no serial port argument is provided, the default port '/dev/ttyUSB0' will be used.
+
+Alternatively, the balance driver can be launched using rosrun:
 ```
-rosrun kern_pcb_balance KernPCBROS
+rosrun kern_pcb_balance KernPCBROS <serial_port>
 ```
+Similarly, if no serial port argument is provided, the serial port '/dev/ttyUSB0' is used.
 
 ## Balance Serial Settings:
 Baud Rate: 9600\
-Set balance mode to AU PC
+Balance mode: rE Cr
 
 ## ROS Topics:
 Kern_Commands | For publishing commands to\
