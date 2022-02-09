@@ -1,0 +1,4 @@
+<launch>
+	<arg name="serial_port" default="/dev/ttyUSB0" />
+	<node name="kern_pcb_driver" pkg="kern_pcb_balance_driver" type="kern_pcb_driver" args="$(arg serial_port)" output="screen"/> 	
+</launch>

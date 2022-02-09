@@ -5,9 +5,9 @@
 #Made by Jakub Glowacki 02/08/2021
 
 import rospy
-from kern_pcb_balance.msg import KernReading
-from kern_pcb_balance.msg import KernCommand
-from kern_pcb_balance.KernDriverSerial import KernDriver
+from kern_pcb_balance_msgs.msg import KernReading
+from kern_pcb_balance_msgs.msg import KernCommand
+from kern_pcb_balance_driver.kern_serial_driver import KernDriver
         
 class KernROS:
     

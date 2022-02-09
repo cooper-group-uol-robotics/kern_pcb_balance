@@ -4,7 +4,7 @@
 
 import rospy
 import sys
-from kern_pcb_balance import KernROS
+from kern_pcb_balance_driver import KernROS
             
 if __name__ == "__main__": #Object oriented initialization for ROS
     if len(sys.argv) > 1:
